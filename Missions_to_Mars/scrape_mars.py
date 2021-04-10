@@ -1,13 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# <div style="background-color:Brown;"><h1 style="color:Orange;text-align:center; font-size:40px;">  Web Scraping - Mission to Mars</h1> </div>
-
-# ### Importing dependencies
-
-# In[1]:
-
-
 import sys
 import pandas as pd
 from splinter import Browser
@@ -16,26 +6,12 @@ import requests
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-# In[2]:
-
-
 executable_path = {'executable_path': ChromeDriverManager().install()}
 browser = Browser('chrome', **executable_path, headless=False)
 
 
-# <h1 style="color:blue;text-align:center; font-size:40px;"> Scraping </h1>
-
-# <h2 style="color:green;text-align:center;"> NASA Mars News </h2>
-
-# In[3]:
-
-
 # Mars News site
 url = "https://redplanetscience.com/"
-
-
-# In[4]:
-
 
 # instantiating the webdriver for Chrome!!!
 browser.visit(url)
@@ -47,28 +23,14 @@ soup = BeautifulSoup(html, 'html.parser')
 browser.quit()
 print(soup.prettify())
 
-
-# In[5]:
-
-
 # Retrieve the parent divs for all articles
 results = soup.find_all('div', class_='list_text')[0]  # using index 0 to get only the lastest news Title
 # Storing the news title
 news_title = results.find('div',class_='content_title').text
 news_p = results.find('div',class_='article_teaser_body').text
 
-
-# In[6]:
-
-
 print(f"Title: {news_title}")
 print(f"Paragraph: {news_p}")
-
-
-# <h2 style="color:green;text-align:center;"> JPL Mars Space Images - Featured Image </h2>
-
-# In[7]:
-
 
 # instantiating our browser object
 browser = Browser('chrome', **executable_path, headless=False)
