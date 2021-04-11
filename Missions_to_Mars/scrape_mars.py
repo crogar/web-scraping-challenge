@@ -1,3 +1,4 @@
+from re import split
 import sys
 import pandas as pd
 from splinter import Browser
@@ -7,9 +8,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 def scrape():
+    data_scraped = {}
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
-
 
     # Mars News site
     url = "https://redplanetscience.com/"
@@ -21,29 +22,27 @@ def scrape():
     # parsing our html plain text to a BS object
     soup = BeautifulSoup(html, 'html.parser')
     # Closing the driver(chrome instance)
-    browser.quit()
-    print(soup.prettify())
-
+    # browser.quit()
+    
     # Retrieve the parent divs for all articles
     results = soup.find_all('div', class_='list_text')[0]  # using index 0 to get only the lastest news Title
     # Storing the news title
     news_title = results.find('div',class_='content_title').text
     news_p = results.find('div',class_='article_teaser_body').text
 
-    print(f"Title: {news_title}")
-    print(f"Paragraph: {news_p}")
-
+    data_scraped["News_Title"] = news_title
+    data_scraped["News_Paragraph"] = news_p
+    
     # instantiating our browser object
-    browser = Browser('chrome', **executable_path, headless=False)
+    # browser = Browser('chrome', **executable_path, headless=False)
     url = 'https://spaceimages-mars.com/'
     # open browser and go to https://spaceimages-mars.com/
     browser.visit(url)
 
     # obtaining featured image, knowing beforehand that the featured image tag has a class named "headerimage fade-in"
     featured_image_url = browser.find_by_css('img[class="headerimage fade-in"]')['src'] # getting the src Attribute(image url path)
-
-    print(featured_image_url)
-
+    data_scraped["Featured_img_url"] = featured_image_url
+    
     # Obtaining Tables at the next link using pandas
     url = 'https://galaxyfacts-mars.com/'
     # Use Panda's `read_html` to parse the url
@@ -61,6 +60,8 @@ def scrape():
     df.set_index(df.Description,inplace=True)
     html_table = df.to_html()
 
+    #Assigning the html table to key 'html_table'
+    data_scraped['tableHtml'] = " ".join(html_table.split())
     #list that will be used to store titles and links to high resolution images
     hemisphere_image_urls = []
 
@@ -82,7 +83,7 @@ def scrape():
         except Exception as e:
             print(e)
 
-    print(hemisphere_image_urls)
+    data_scraped['hemisphere_urls'] = hemisphere_image_urls
     browser.quit()
-
+    print(data_scraped)
 scrape()
