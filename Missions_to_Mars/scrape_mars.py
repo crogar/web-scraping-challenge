@@ -84,4 +84,3 @@ def scrape():
     browser.quit()
     # print(data_scraped)
     return data_scraped
-scrape()
