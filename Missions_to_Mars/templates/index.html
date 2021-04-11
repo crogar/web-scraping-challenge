@@ -17,19 +17,26 @@
       <h1>Mission to Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape</a></p>
     </div>
-    <h2><b>Latest Mars News</b></h2>
-    <h4><strong>{{mars_mission["News_Title"]}}</strong></h4>
-    <h5>{{mars_mission.News_Paragraph}}</h5>
-    <!-- first row -->
-    <div class="row">
-      <div class="col-sm-6 col-md-6 col-6">
-        <img class="featured-img" src={{mars_mission.Featured_img_url}} alt="Featured_img_url">
-      </div>
-      <div class="col-sm-6 col-md-6 col-6">
-        {{mars_mission.tableHtml | safe}}
-      </div>
-    </div> 
-    <!-- end row -->
+    <main>
+      <section class="introduction">
+        <h2><b>Latest Mars News</b></h2>
+        <h4><strong>{{mars_mission["News_Title"]}}</strong></h4>
+        <h5>{{mars_mission.News_Paragraph}}</h5>
+      </section>
+      <div class="featured">
+            <!-- first row -->
+            <div class="row">
+              <div class="col-sm-6 col-md-6 col-6">
+                <img class="featured-img" src={{mars_mission.Featured_img_url}} alt="Featured_img_url">
+              </div>
+              <div class="col-sm-6 col-md-6 col-6">
+                {{mars_mission.tableHtml | safe}}
+              </div>
+            </div>
+            <!-- end row --> 
+      </div> 
+      <!-- end featured class -->
+    </main>
     <br><br><br>
   </div>
 </body>
