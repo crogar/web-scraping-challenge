@@ -10,7 +10,7 @@ body{
     /* background-color: #222; */
 }
 .title-header{
-  color: #fff;
+  color: rgb(180, 22, 22);
   text-shadow:
    0 0 5px #fff,
    0 0 10px rgb(197, 238, 86),
@@ -25,6 +25,9 @@ body{
 {
   padding-top: 3%;
   width: 95%;
+}
+.card-title{
+  margin-right: 5%;
 }
 
 .jumbotron{
