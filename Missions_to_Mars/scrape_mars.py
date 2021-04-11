@@ -1,5 +1,6 @@
 from re import split
 import sys
+from bs4.element import ProcessingInstruction
 import pandas as pd
 from splinter import Browser
 from bs4 import BeautifulSoup
@@ -58,7 +59,7 @@ def scrape():
     html_table = df.to_html()
 
     #Assigning the html table to key 'html_table'
-    data_scraped['tableHtml'] = " ".join(html_table.split())
+    data_scraped['tableHtml'] = html_table.replace("border=\"1\" class=\"dataframe\"","class=\"table table-striped\"")
     #list that will be used to store titles and links to high resolution images
     hemisphere_image_urls = []
 
