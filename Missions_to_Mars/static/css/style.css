@@ -1,8 +1,8 @@
-.featured-img{
+.featured-img, .card-img-top{
 	width: 100%;
 }
 
 .featured{
-    border: 2px red dotted;
+    /* border: 2px red dotted; */
     margin-bottom: 3%;
 }

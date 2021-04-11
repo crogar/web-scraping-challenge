@@ -59,7 +59,7 @@ def scrape():
     html_table = df.to_html()
 
     #Assigning the html table to key 'html_table'
-    data_scraped['tableHtml'] = html_table.replace("class=\"dataframe\"","class=\"table table-striped\"")
+    data_scraped['tableHtml'] = html_table.replace("class=\"dataframe\"","class=\"table table-striped table-responsive\"")
     #list that will be used to store titles and links to high resolution images
     hemisphere_image_urls = []
 
