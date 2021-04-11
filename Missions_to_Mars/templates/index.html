@@ -36,9 +36,14 @@
       <div class="img-presentation">
         <h2 style="text-align: center;">Mars Hemispheres</h2>
         <div class="row">
-          {for image in mars_mission.hemisphere_urls}
-          <div class="col">
-            
+          {% for image in mars_mission.hemisphere_urls %}
+          <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src={{image.img_url}} alt="Card image cap">
+              <div class="card-body">
+                <p class="card-title"><strong>{{image.title}}</strong></p>
+              </div>
+            </div>
           </div>
           {%endfor%}
         </div>

@@ -75,7 +75,7 @@ def scrape():
         try:
             browser.links.find_by_partial_text('Enhanced')[i].click()
             title = browser.find_by_css('h2[class="title"]').text
-            img_url = browser.links.find_by_partial_text('Original')['href']
+            img_url = browser.links.find_by_partial_text('Sample')['href']
             hemisphere_image_urls.append({"title": title, "img_url": img_url})
             browser.visit(url)
         except Exception as e:
