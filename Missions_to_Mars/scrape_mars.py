@@ -82,5 +82,6 @@ def scrape():
 
     data_scraped['hemisphere_urls'] = hemisphere_image_urls
     browser.quit()
-    print(data_scraped)
+    # print(data_scraped)
+    return data_scraped
 scrape()
