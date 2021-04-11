@@ -21,9 +21,7 @@ def scrape():
     html = browser.html
     # parsing our html plain text to a BS object
     soup = BeautifulSoup(html, 'html.parser')
-    # Closing the driver(chrome instance)
-    # browser.quit()
-    
+  
     # Retrieve the parent divs for all articles
     results = soup.find_all('div', class_='list_text')[0]  # using index 0 to get only the lastest news Title
     # Storing the news title
@@ -33,8 +31,7 @@ def scrape():
     data_scraped["News_Title"] = news_title
     data_scraped["News_Paragraph"] = news_p
     
-    # instantiating our browser object
-    # browser = Browser('chrome', **executable_path, headless=False)
+    # getting url for featured images
     url = 'https://spaceimages-mars.com/'
     # open browser and go to https://spaceimages-mars.com/
     browser.visit(url)
