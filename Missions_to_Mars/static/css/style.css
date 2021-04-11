@@ -21,6 +21,11 @@ body{
    0 0 100px rgb(201, 103, 12),
    0 0 150px rgb(209, 73, 20);
 }
+.card-img-top
+{
+  padding-top: 3%;
+  width: 95%;
+}
 
 .jumbotron{
     background:url(http://artem.anmedio.ru/dev/planet/space.jpg) repeat;
