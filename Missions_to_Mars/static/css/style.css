@@ -9,6 +9,18 @@
 body{
     /* background-color: #222; */
 }
+.title-header{
+  color: #fff;
+  text-shadow:
+   0 0 5px #fff,
+   0 0 10px rgb(197, 238, 86),
+   0 0 20px rgb(189, 28, 28),
+   0 0 40px rgb(223, 130, 130),
+   0 0 80px rgb(214, 160, 89),
+   0 0 90px rgb(212, 132, 40),
+   0 0 100px rgb(201, 103, 12),
+   0 0 150px rgb(209, 73, 20);
+}
 
 .jumbotron{
     background:url(http://artem.anmedio.ru/dev/planet/space.jpg) repeat;
@@ -16,12 +28,12 @@ body{
   .planet{
     width:150px;
     height:150px;
-    /* position:absolute; */
+    position:absolute;
     border-radius:50%;
     overflow:hidden;
     box-shadow: 0 0 60px -20px rgba(255, 189, 3, 0.72), -14px -15px 40px -10px rgba(255, 238, 191, 0.23);
-    left:45%;
-    top:45%;
+    left:20%;
+    top:30%;
     margin:-150px;
   }
   /* .planet .mask{
@@ -34,23 +46,23 @@ body{
   .planet .background{
     animation: translateBackground 40s infinite linear;  
     background:url(http://artem.anmedio.ru/dev/planet/mars.jpg) repeat-x;
-    width:300px;
-    height:300px;
+    width:150px;
+    height:150px;
     position:absolute;
     border-radius:50%;
   }
   .planet .clouds{
     background:url(http://artem.anmedio.ru/dev/planet/clouds.png) repeat-x;
-    width:300px;
-    height:300px;
+    width:150px;
+    height:150px;
     position:absolute;
     border-radius:50%;
     animation: translateBackground 30s infinite linear;
     opacity: 0.4;
   }
   .planet .wrap{
-    width:300px;
-    height:300px;
+    width:150px;
+    height:150px;
     position:absolute;
     border-radius:50%;
     animation: rotatePlanet 150s infinite linear;  
@@ -72,3 +84,30 @@ body{
     }
   }
   
+@media screen and (max-width:765px){
+  .planet{
+    width:150px;
+    height:150px;
+    position:absolute;
+    border-radius:50%;
+    overflow:hidden;
+    box-shadow: 0 0 60px -20px rgba(255, 189, 3, 0.72), -14px -15px 40px -10px rgba(255, 238, 191, 0.23);
+    left:53%;
+    top:18%;
+    margin:-120px;
+    }
+}
+
+@media screen and (max-width:500px){
+  .planet{
+    width:100px;
+    height:100px;
+    position:absolute;
+    border-radius:50%;
+    overflow:hidden;
+    box-shadow: 0 0 60px -20px rgba(255, 189, 3, 0.72), -14px -15px 40px -10px rgba(255, 238, 191, 0.23);
+    left:66%;
+    top:19%;
+    margin:-120px;
+    }
+}
