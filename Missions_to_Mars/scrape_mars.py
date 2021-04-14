@@ -1,10 +1,7 @@
-from re import split
-import sys
-from bs4.element import ProcessingInstruction
 import pandas as pd
 from splinter import Browser
 from bs4 import BeautifulSoup
-import requests
+from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 
 
@@ -50,9 +47,8 @@ def scrape():
     #tables[0]
     df = tables[0]
 
-    # ##### Cleaning up table
+    # Cleaning up table
     df.columns = ['Description','Mars','Earth']
-    df.head()
 
     # Resetting index
     df.set_index(df.Description,inplace=True)
@@ -83,5 +79,4 @@ def scrape():
 
     data_scraped['hemisphere_urls'] = hemisphere_image_urls
     browser.quit()
-    # print(data_scraped)
     return data_scraped
