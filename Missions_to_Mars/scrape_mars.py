@@ -32,6 +32,7 @@ def scrape():
     # getting url for featured images
     url = 'https://spaceimages-mars.com/'
     # open browser and go to https://spaceimages-mars.com/
+
     browser.visit(url)
 
     # obtaining featured image, knowing beforehand that the featured image tag has a class named "headerimage fade-in"
@@ -73,7 +74,7 @@ def scrape():
             title = browser.find_by_css('h2[class="title"]').text
             img_url = browser.links.find_by_partial_text('Sample')['href']
             hemisphere_image_urls.append({"title": title, "img_url": img_url})
-            browser.visit(url)
+            browser.back()
         except Exception as e:
             print(e)
 
